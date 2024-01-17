@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "飲み会ゲーム「イッキ！」",
+    "slug": "drink-ikki",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/beer-image.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "wwcorp",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.umatan.drinkikki",
+      "versionCode": 1,
+      "permissions": [],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/beer-image.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0a1bd8a6-dfa4-4034-a94d-587e81fe2f5c"
+      }
+    }
+  }
+}
