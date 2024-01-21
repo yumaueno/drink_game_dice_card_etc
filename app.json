@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "飲み会ゲーム「イッキ！」",
-    "slug": "drink-ikki",
+    "name": "Dice, Cards, etc",
+    "slug": "dice-cards-etc",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/beer-image.png",
@@ -20,7 +20,7 @@
       "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "com.umatan.drinkikki",
+      "package": "com.umatan.dice-cards",
       "versionCode": 1,
       "permissions": [],
       "adaptiveIcon": {
