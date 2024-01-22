@@ -1,103 +1,38 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import * as React from 'react';
+import { Button, View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import DiceApp from './DiceApp'; 
+import CardsApp from './CardsApp'; 
 
-const DiceApp = () => {
-  const [diceCount, setDiceCount] = useState(1);
-  const [diceValues, setDiceValues] = useState([1]);
+const Stack = createNativeStackNavigator();
 
-  // サイコロの目の画像ファイルへのパス
-  const diceImages = {
-    1: require('./assets/dice1.png'),
-    2: require('./assets/dice2.png'),
-    3: require('./assets/dice3.png'),
-    4: require('./assets/dice4.png'),
-    5: require('./assets/dice5.png'),
-    6: require('./assets/dice6.png'),
-  };
-
-  const rollDice = () => {
-    const newDiceValues = [];
-    for (let i = 0; i < diceCount; i++) {
-      newDiceValues.push(Math.floor(Math.random() * 6) + 1);
-    }
-    setDiceValues(newDiceValues);
-  };
-
-  const totalValue = diceValues.reduce((acc, curr) => acc + curr, 0);
-
-
+function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <View style={styles.pickerContainer}>
-        <Picker
-          selectedValue={diceCount}
-          style={styles.picker}
-          onValueChange={(itemValue) => {
-            setDiceCount(itemValue);
-            setDiceValues(new Array(itemValue).fill(1));
-          }}
-        >
-          <Picker.Item label="1個" value={1} />
-          <Picker.Item label="2個" value={2} />
-          <Picker.Item label="3個" value={3} />
-        </Picker>
-      </View>
-
-      <View style={styles.diceContainer}>
-        {diceValues.map((value, index) => (
-          <Image key={index} source={diceImages[value]} style={styles.diceImage} />
-        ))}
-      </View>
-
-      <Text style={styles.totalText}>合計: {totalValue}</Text>
-
-      <TouchableOpacity style={styles.button} onPress={rollDice}>
-        <Text style={styles.buttonText}>サイコロを振る</Text>
-      </TouchableOpacity>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Chose the Game</Text>
+      <Button
+        title="Dice"
+        onPress={() => navigation.navigate('Dice')}
+      />
+      <Button
+        title="Cards"
+        onPress={() => navigation.navigate('Cards')}
+      />
     </View>
   );
-};
+}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: '#f5f5f5',
-  },
-  pickerContainer: {
-    marginTop: 20,
-  },
-  picker: {
-    height: 50,
-    width: 150,
-  },
-  diceContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  diceImage: {
-    width: 50,
-    height: 50,
-    margin: 5,
-  },
-  totalText: {
-    fontSize: 24,
-    marginBottom: 10,
-  },
-  button: {
-    backgroundColor: 'blue',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 5,
-    marginBottom: 20,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 20,
-  },
-});
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Dice" component={DiceApp} />
+        <Stack.Screen name="Cards" component={CardsApp} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
-export default DiceApp;
+export default App;
