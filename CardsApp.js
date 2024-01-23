@@ -70,9 +70,10 @@ const CardsApp = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#f5f5f5',
+    marginTop: 100,
   },
   button: {
     backgroundColor: 'grey',
@@ -95,6 +96,7 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 1,
     borderRadius: 5,
+    marginTop: 50
   },
   cardText: {
     fontSize: 18,
