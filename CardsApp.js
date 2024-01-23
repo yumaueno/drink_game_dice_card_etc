@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
+
 const CardsApp = () => {
   const [deck, setDeck] = useState([]);
   const [currentCard, setCurrentCard] = useState(null);
@@ -37,19 +38,29 @@ const CardsApp = () => {
     }
   };
 
+  const getSuitImage = (suit) => {
+    const suitImages = {
+      'Hearts': require('./assets/heart.png'),
+      'Diamonds': require('./assets/diamond.png'),
+      'Clubs': require('./assets/club.png'),
+      'Spades': require('./assets/spade.png')
+    };
+    return suitImages[suit];
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={initializeDeck}>
-        <Text style={styles.buttonText}>restart</Text>
+        <Text style={styles.buttonText}>Restart</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={drawCard}>
-        <Text style={styles.buttonText}>flip over a card</Text>
+        <Text style={styles.buttonText}>Flip Over a Card</Text>
       </TouchableOpacity>
       {currentCard && (
         <View style={styles.card}>
-          <Text style={styles.cardText}>{`${currentCard.rank} of ${currentCard.suit}`}</Text>
-          {/* ここにカードの画像を表示する場合、Imageコンポーネントを使用 */}
-          {/* <Image source={require(`./path/to/card/images/${currentCard.rank}_of_${currentCard.suit}.png`)} style={styles.cardImage} /> */}
+          <Text style={styles.cardRank}>{currentCard.rank}</Text>
+          <Image source={getSuitImage(currentCard.suit)} style={styles.suitImage} />
+          <Text style={[styles.cardRank, styles.cardRankBottom]}>{currentCard.rank}</Text>
         </View>
       )}
     </View>
@@ -87,6 +98,25 @@ const styles = StyleSheet.create({
   },
   cardText: {
     fontSize: 18,
+  },
+  cardRank: {
+    position: 'absolute',
+    top: 5,
+    left: 5,
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  suitImage: {
+    width: 50,
+    height: 50,
+    alignSelf: 'center',
+  },
+  cardRankBottom: {
+    top: undefined,
+    bottom: 5,
+    left: undefined,
+    right: 5,
+    transform: [{ rotate: '180deg' }],
   },
 });
 
