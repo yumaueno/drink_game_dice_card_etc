@@ -33,8 +33,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "0a1bd8a6-dfa4-4034-a94d-587e81fe2f5c"
+        "projectId": "51751b52-5f66-49e5-857c-0aac850d2302"
       }
-    }
+    },
+    "owner": "umatan"
   }
 }
