@@ -1,37 +1,72 @@
 import * as React from 'react';
-import { Button, View, Text } from 'react-native';
+import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import DiceApp from './DiceApp'; 
-import CardsApp from './CardsApp'
+import DiceApp from './DiceApp';
+import CardsApp from './CardsApp';
 import CoinApp from './CoinApp';
-import RouletteApp from './RouletteApp'; 
+import RouletteApp from './RouletteApp';
 
 const Stack = createNativeStackNavigator();
 
 function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Chose the Game</Text>
-      <Button
-        title="Dice"
+    <View style={styles.container}>
+      <Text style={styles.title}>Choose the Game</Text>
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate('Dice')}
-      />
-      <Button
-        title="Cards"
+      >
+        <Text style={styles.buttonText}>Dice</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate('Cards')}
-      />
-      <Button
-        title="Coin"
+      >
+        <Text style={styles.buttonText}>Cards</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate('Coin')}
-      />
-      <Button
-        title="Roulette"
+      >
+        <Text style={styles.buttonText}>Coin</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate('Roulette')}
-      />
+      >
+        <Text style={styles.buttonText}>Roulette</Text>
+      </TouchableOpacity>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#f5f5f5',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 30,
+  },
+  button: {
+    backgroundColor: 'grey',
+    padding: 15,
+    borderRadius: 10,
+    width: '60%',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+});
 
 function App() {
   return (

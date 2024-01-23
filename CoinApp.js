@@ -62,14 +62,17 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     button: {
-        backgroundColor: 'blue',
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-        borderRadius: 5,
+        backgroundColor: 'grey',
+        padding: 15,
+        borderRadius: 10,
+        width: '60%',
+        alignItems: 'center',
+        marginBottom: 20,
     },
     buttonText: {
         color: 'white',
-        fontSize: 20,
+        fontSize: 18,
+        fontWeight: 'bold',
     },
     historyContainer: {
         marginTop: 20,
