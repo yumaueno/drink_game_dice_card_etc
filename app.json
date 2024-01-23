@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "Dice, Cards, etc",
-    "slug": "dice-cards-etc",
+    "name": "Dice, Cards, Coin, Roulette",
+    "slug": "dice-cards-coin-roulette",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/beer-image.png",
+    "icon": "./assets/game.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -20,7 +20,7 @@
       "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "com.umatan.dice-cards",
+      "package": "com.umatan.dice-cards-coin-roulette",
       "versionCode": 1,
       "permissions": [],
       "adaptiveIcon": {
@@ -29,7 +29,7 @@
       }
     },
     "web": {
-      "favicon": "./assets/beer-image.png"
+      "favicon": "./assets/game.png"
     },
     "extra": {
       "eas": {
