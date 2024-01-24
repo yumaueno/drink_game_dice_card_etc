@@ -16,7 +16,7 @@
     ],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "wwcorp",
+      "bundleIdentifier": "com.umatan.dice-cards-coin-roulette",
       "buildNumber": "1.0.0"
     },
     "android": {
